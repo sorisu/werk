@@ -1,8 +1,8 @@
-#-----------Dependencies----------#
+#-----------Dependencies-----------#
 import sys
 
 
-#-----------Definitions-----------#
+#-----------Definitions------------#
 
 class Node():
     def __init__(self, state, parent, action):
@@ -224,9 +224,9 @@ if len(sys.argv) != 2:
 m = Maze(sys.argv[1])
 print("Maze:")
 m.print()
-print("Solving...")
+print("Solving....")
 m.solve()
-print("States Explored:", m.num_explored)
-print("Solution:")
+print("States Explored: ", m.num_explored)
+print("Solution: ")
 m.print()
 m.output_image("maze.png", show_explored=True)
