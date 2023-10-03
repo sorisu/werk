@@ -1,0 +1,55 @@
+AI Search Problems
+
+Ultimate goal: 
+- Find a solution
+
+Definitions:
+- Intial State: Place where we beggin
+- Actions: Set of actions we can take in any given state
+- Transition Model: A way of defining what happens when we go from one state to another
+- Goal Test: Determine whether a given state meets the desired goal
+- Path Cost Function: For any particular path, by following some sequence of actions, determine how expensive it is (Money, Time, Resource utilization, etc.). In other words, optimization problem.
+- Solution: A sequence of actions that leads from the intial state to the goal state.
+    - Optimal Solution: A solution that has the lowerst path cost among all solutions.
+- Node: A data structure that keeps track of:
+    - A state
+    - A parent (node that generated this node)
+    - An action (action applied to parent to get node)
+    - A path cost (from initial state to node)
+- Frontier: A data structure that contains all possible options remaining to be explored next, that that have yet to be visited.
+- Expand Node: Look at all the neighboring Nodes, in other words, consider all posibble actions that can be taken from the current state the node represents to the other Nodes it can get to.
+- Explore Set - A dataset containing a list of the explored Nodes.
+- Uninformed Search: Search strategy that uses no problem-specifc knowledge.
+- Informed Search: Search strategy that uses problem-specific knowledge to find solutions more efficiently.
+
+
+Approach to Solve the Problem:
+- Start with a Frontier that contains the initial Initial State (qty 1).
+- Repeat:
+    - If the frontier is empty, then no solution.
+    - Remove a Node from the Frontier.
+    - If Node contains Goal State, return the Solution.
+    - Otherwise, Expand Node, add resulting Nodes to the Frontier.
+- Potential Problem:
+    - By directional actions, causing infinite loops.
+    - Solution: Keep track of previously explored states and don't add it ot the frontier.
+
+Revised Approach to Solve the Problem:
+- Start with a frontier that contains the Initial State.
+- Start with an empty explored set.
+- Repeat:
+    - If the frontier is empty, then no solution.
+    - Remove a node from the Frontier.
+    - If Node contains Goal State, return the Solution.
+    - Add the Node to the Explored Set.
+    - Expand Node, add resulting Nodes to the Frontier if they are not already in the Frontier or the Explored Set.
+
+Methodology for Adding / Removing Nodes from the Frontier: (Note: Frontier = Data Structure, so we need to make a choice for the order to add/remove elements.)
+- Uninformed Search Algorithms: Looks at available actions, and choose from those actions.
+    - Depth-First Search: Search algorithm that always expands the deepest Node in the Frontier.
+        - In other words, a Stack; Last-in, First-out (LIFO) approach.
+    - Breadth-First Search: Search algorithm that always expands the shallowest Node in the Frontier.
+        - In other words, a Queue; First-in First-out (FIFO) approach.
+- Informed Search Algorithms:
+    - Greedy Best-First Search: Expands the Node that is closest to the goal, as estimated by a heuristic function h(n).
+    - 
